@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load form_tags %}
+
+{% block title %}
+    Log In
+{% endblock title %}
+
+{% block content %}
+    <div class="d-flex justify-content-center">
+        <a href="{% url 'account_login' %}" class="link-unstyled border border-dark rounded"><h3 class="m-2"> LOG
+            IN </h3></a>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <a href="{% url 'account_signup' %}" class="link-unstyled"><h3 class="m-2"> SIGN UP </h3></a>
+    </div>
+    <div class="d-flex justify-content-center">
+        <form method="post" class="form-stretch" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form.login|add_classes:'form-control mt-4' }}
+            {% for error in form.login.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+            {{ form.password|add_classes:'form-control mt-4' }}
+            {% for error in form.password.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+            <div class="d-flex align-items-center justify-content-center">
+                <button type="submit" class="btn btn-primary mt-3 w-100">Log In</button>
+            </div>
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+        </form>
+    </div>
+
+{% endblock content %}
