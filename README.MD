@@ -1,0 +1,1 @@
+# Django app with allauth authentication model - first draft
