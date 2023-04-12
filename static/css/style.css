@@ -1,0 +1,36 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav.bg-custom {
+    background-color: #282A35;
+    opacity: 0.9;
+}
+
+.navbar-nav > li > .dropdown-menu {
+    background-color: #282A35;
+}
+
+.navbar-nav > li > .dropdown-menu a {
+    color: #aaaaaa;
+}
+
+.form-stretch {
+    flex: 0 0 40%;
+}
+
+.link-unstyled, .link-unstyled:link, .link-unstyled:hover {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+#msg-container {
+    z-index: 99;
+    display: flex;
+    width: 100%;
+}
+
+#msg-content {
+    min-width: 600px;
+    min-height: 400px;
+}
